@@ -1,9 +1,9 @@
-import { ApolloProvider } from '@apollo/react-hooks'
+import { ApolloProvider } from '@apollo/client';
 import withApolloClient from '../apollo/client'
 
 function App ({ Component, pageProps, apollo }) {
   return (<ApolloProvider client={apollo}>
-    <Component {...pageProps} />)
+    <Component {...pageProps} />
   </ApolloProvider>)
 }
 

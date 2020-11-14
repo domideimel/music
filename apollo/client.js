@@ -1,6 +1,4 @@
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloClient } from 'apollo-client'
-import { createHttpLink } from 'apollo-link-http'
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client'
 import withApollo from 'next-with-apollo'
 import getConfig from 'next/config'
 
