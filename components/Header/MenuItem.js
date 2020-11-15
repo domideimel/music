@@ -16,7 +16,8 @@ const MenuItem = ({ item, isLast, ...rest }) => {
     display="block"
     {...rest}
   >
-    <Link href={`/${encodeURIComponent(to)}`}>{children}</Link>
+    {to === '/' ? <Link href={'/'}><a>{children}</a></Link> :
+      <Link href={`/${encodeURIComponent(to)}`}><a>{children}</a></Link>}
   </Text>)
 }
 export default MenuItem

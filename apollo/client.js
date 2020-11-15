@@ -1,5 +1,5 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client'
-import withApollo from 'next-with-apollo'
+import { withApollo } from "next-apollo";
 import getConfig from 'next/config'
 
 const { publicRuntimeConfig } = getConfig()
@@ -17,8 +17,9 @@ const httpLink = createHttpLink({
   }
 })
 
-export default withApollo(({ initialState }) => new ApolloClient({
+const apolloClient = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache()
-    .restore(initialState || {})
-}))
+})
+
+export default withApollo(apolloClient)

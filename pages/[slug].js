@@ -1,24 +1,24 @@
+import { useQuery } from '@apollo/client'
+import { useRouter } from 'next/router'
+import MainPage from '../components/Page'
 import { GET_PAGE } from '../queries/page'
 
-const Page = ({ data }) => {
-  console.log(data)
-  return (<>Hallo Welt</>)
-}
+const Page = () => {
+  const router = useRouter()
+  const { slug } = router.query
 
-Page.getInitialProps = async ctx => {
-  const { apolloClient, query: { slug } } = ctx
-
-  const { data, loading, error } = await apolloClient.query({
-    query: GET_PAGE,
+  const { loading, error, data } = useQuery(GET_PAGE, {
+    fetchPolicy: 'cache-and-network',
     variables: {
       slug
     }
   })
-  return {
-    data,
-    loading,
-    error
-  }
+  if (loading) return null
+  if (error) return `Error! ${error}`
+  return (<MainPage
+    data={data.pageCollection.items[0]}
+  />)
 }
 
 export default Page
+
