@@ -19,10 +19,9 @@ const Header = () => {
     justify="space-between"
     wrap="wrap"
     w="100%"
-    mb={8}
     p={8}
-    bg={['red.600', 'red.600', 'white', 'red.600']}
-    color={['white', 'white', 'grey.500', 'grey.500']}
+    bg={['red.600', 'red.600', 'white', 'white']}
+    color={['white', 'white', 'gray.500', 'gray.500']}
     css={{
       position: 'sticky',
       top: 0
