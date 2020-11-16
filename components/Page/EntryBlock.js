@@ -1,9 +1,7 @@
 import { useQuery } from '@apollo/client'
-import { Button } from '@chakra-ui/react'
-import Link from 'next/link'
 import { GET_ENTRY } from '../../queries/Entry'
 
-const EntryHyperLink = ({ content }) => {
+const EntryBlock = ({content}) => {
   const { loading, error, data } = useQuery(GET_ENTRY, {
     fetchPolicy: 'cache-and-network',
     variables: {
@@ -12,15 +10,8 @@ const EntryHyperLink = ({ content }) => {
   })
   if (loading) return null
   if (error) return `Error! ${error}`
-
-  return (<Link href={data.page.slug}>
-    <Button
-      colorScheme="red"
-      my={4}
-    >
-      {content.content[0].value}
-    </Button>
-  </Link>)
+  console.log(data)
+  return (<>Entry Block</>)
 }
 
-export default EntryHyperLink
+export default EntryBlock

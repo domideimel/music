@@ -5,7 +5,9 @@ const componentList = {
   paragraph: dynamic(() => import('./Paragraph')),
   heading: dynamic(() => import('./Heading')),
   image: dynamic(() => import('./Image')),
-  'embedded-asset-block': dynamic(() => import('./AssetBlock'))
+  'embedded-asset-block': dynamic(() => import('./AssetBlock')),
+  hr: dynamic(() => import('./Hr')),
+  'embedded-entry-block': dynamic(() => import('./EntryBlock'))
 }
 
 const MainPage = ({ data }) => {
@@ -25,12 +27,11 @@ const MainPage = ({ data }) => {
           }]
         }}
       />
-
-      {components.map((Component, i) => <Component
-        key={i}
-        content={data.content.json.content[i]}
-        assetData={data.content.json.content[i].data.target}
-      />)}
+      {/*{components.map((Component, i) => <Component*/}
+      {/*  key={i}*/}
+      {/*  content={data.content.json.content[i]}*/}
+      {/*  assetData={data.content.json.content[i].data.target}*/}
+      {/*/>)}*/}
     </Container>
   </>)
 }
